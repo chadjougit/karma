@@ -12,6 +12,10 @@ import { FirstdashComponent } from './core/dashboard/firstdash/firstdash.compone
 import { SeconddashComponent } from './core/dashboard/seconddash/seconddash.component';
 
 import {LoginService  } from './shared/loginpage/login.service'
+import {LoginguardService  } from './shared/loginpage/loginguard.service'
+
+
+
 
 
 
@@ -35,7 +39,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
      ReactiveFormsModule,
      routes
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, LoginService],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, LoginService, LoginguardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
