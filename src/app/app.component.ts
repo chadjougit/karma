@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {LoginpageComponent} from  './shared/loginpage/loginpage.component';
 
 @Component({
   selector: 'app-root',
