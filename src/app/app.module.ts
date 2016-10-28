@@ -11,6 +11,8 @@ import { DashboardComponent } from './core/dashboard/dashboard.component';
 import { FirstdashComponent } from './core/dashboard/firstdash/firstdash.component';
 import { SeconddashComponent } from './core/dashboard/seconddash/seconddash.component';
 
+import {LoginService  } from './shared/loginpage/login.service'
+
 
 
 import { routes } from './app-routing';
@@ -33,7 +35,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
      ReactiveFormsModule,
      routes
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

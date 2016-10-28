@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {LoginService} from './login.service'
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-loginpage',
@@ -10,7 +13,7 @@ export class LoginpageComponent implements OnInit {
 
 complexForm : FormGroup;
 
-constructor(fb: FormBuilder){
+constructor(fb: FormBuilder, private LoginService: LoginService, private router: Router){
     this.complexForm = fb.group({
       // To add a validator, we must first convert the string value into an array. 
       //The first item in the array is the default value if any, then the next item in the array is the validator. Here we are adding a required validator meaning that the firstName attribute must have a value in it.
@@ -27,7 +30,14 @@ constructor(fb: FormBuilder){
 
   submitForm(value: any){
     console.log(value);
+     this.login(); 
+
+    
   }
+
+    login() {if (this.LoginService.login(this.complexForm.value.firstName, this.complexForm.value.lastName))
+    {this.router.navigate(['dashboard'])}};
+
 
   ngOnInit() {
   }
